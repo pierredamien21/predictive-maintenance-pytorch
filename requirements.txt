@@ -1,9 +1,11 @@
+torch
 numpy
 pandas
-scikit-learn
 matplotlib
 seaborn
-PyYAML
-torch
-streamlit
+scikit-learn
 jupyter
+tqdm
+PyYAML
+tensorboard
+streamlit
