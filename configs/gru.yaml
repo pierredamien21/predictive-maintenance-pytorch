@@ -1,0 +1,26 @@
+name: gru_fd001
+seed: 42  # graine du découpage train / validation (fixe pour tous les modèles)
+
+data:
+  subset: FD001
+  data_dir: data/raw
+  window: 30
+  rul_max: 125
+  val_fraction: 0.2
+  sensors: [2, 3, 4, 7, 8, 9, 11, 12, 13, 14, 15, 17, 20, 21]  # capteurs non constants (voir 01_eda)
+  n_regimes: 1      # régimes de vol identifiés par K-means
+  per_regime: true  # normalisation par régime (sans effet si n_regimes = 1)
+
+model:
+  name: gru
+  hidden_size: 64
+  num_layers: 1
+  dropout: 0.3
+  bidirectional: false
+
+training:
+  batch_size: 256
+  epochs: 60
+  patience: 10
+  learning_rate: 0.001
+  clip_norm: 1.0

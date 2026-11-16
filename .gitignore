@@ -13,3 +13,8 @@ models/*
 
 .ipynb_checkpoints/
 .streamlit/secrets.toml
+logs/
+
+# Exceptions : poids nécessaires à la démo Streamlit en ligne
+!models/multitask_w40_fd004_seed0.pt
+!models/gru_best_fd001_seed0.pt
