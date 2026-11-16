@@ -34,3 +34,22 @@ def save_checkpoint(model: torch.nn.Module, path: str | Path) -> None:
     checkpoint_path = Path(path)
     checkpoint_path.parent.mkdir(parents=True, exist_ok=True)
     torch.save(model.state_dict(), checkpoint_path)
+
+
+def set_plot_style() -> None:
+    """Style matplotlib commun à tous les notebooks."""
+    import matplotlib.pyplot as plt
+
+    plt.rcParams.update(
+        {
+            "figure.dpi": 110,
+            "axes.spines.top": False,
+            "axes.spines.right": False,
+            "axes.grid": True,
+            "grid.alpha": 0.25,
+            "axes.titlesize": 11,
+            "axes.titleweight": "bold",
+            "axes.labelsize": 10,
+            "legend.frameon": False,
+        }
+    )
