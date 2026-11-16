@@ -1,0 +1,26 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Installer les dépendances (PyTorch en version CPU)
+        run: |
+          pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r requirements.txt ruff
+      - name: Vérifier le style
+        run: |
+          ruff check src tests app
+          ruff format --check src tests app
+      # Les tests utilisent des données synthétiques ; celui qui a besoin de C-MAPSS est ignoré.
+      - name: Lancer les tests
+        run: python -m pytest
