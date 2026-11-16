@@ -1,0 +1,10 @@
+{
+ "FD001": {
+  "min_samples_leaf": 5,
+  "max_features": 0.33
+ },
+ "FD004": {
+  "min_samples_leaf": 5,
+  "max_features": 0.33
+ }
+}
